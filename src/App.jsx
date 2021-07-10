@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./css/app.module.css";
 import "./css/global.css";
 import GenerateForms from "./GenerateForms";
 import ListForms from "./ListForms";
@@ -10,7 +11,7 @@ function App() {
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className={styles.containerCenter}>
         <GenerateForms
           setAllForms={setAllForms}
           setCurrentChooseItem={setCurrentChooseItem}
@@ -26,7 +27,7 @@ function App() {
 
       <div style={{ height: 15 }} />
 
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className={styles.containerCenter}>
         {currentChooseItem && Object.keys(currentChooseItem).length > 0 && (
           <ShowCurrentForm
             currentChooseItem={currentChooseItem}

@@ -1,0 +1,15 @@
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.possibleValuesForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex: 1;
+}
+
+.mainContainer {
+  width: 100%;
+}

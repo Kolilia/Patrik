@@ -64,43 +64,48 @@ const GenerateForms = ({ setAllForms, setCurrentChooseItem }) => {
 
   return (
     <div>
-      <label htmlFor="title">Title for this form</label>
+      <fieldset>
+        <legend>Create form with patrik</legend>
 
-      <input
-        value={title}
-        onChange={(e) => {
-          const { value } = e.target;
+        <label htmlFor="title">Title for this form</label>
 
-          if (!value) {
-            setError("Title is required");
-          } else {
-            setError("");
-          }
+        <input
+          value={title}
+          style={{ width: "100%" }}
+          onChange={(e) => {
+            const { value } = e.target;
 
-          setTitle(value);
-        }}
-        type="text"
-        id="title"
-        autoComplete="off"
-      />
+            if (!value) {
+              setError("Title is required");
+            } else {
+              setError("");
+            }
 
-      <div style={{ height: 20 }} />
+            setTitle(value);
+          }}
+          type="text"
+          id="title"
+          autoComplete="off"
+        />
 
-      {mapElementForms}
+        <div style={{ height: 30 }} />
 
-      <div style={{ height: 20 }} />
+        {mapElementForms}
 
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <button onClick={reset}>Reset this form and create new</button>
+        <div style={{ height: 20 }} />
 
-        <div style={{ width: 5 }} />
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <button onClick={reset}>Reset form and create new</button>
 
-        <button onClick={confirm}>Create this form</button>
-      </div>
+          <div style={{ width: 5 }} />
 
-      <div style={{ height: 10 }} />
+          <button onClick={confirm}>Create form</button>
+        </div>
 
-      {Boolean(error) && <ShowErrorText>{error}</ShowErrorText>}
+        <div style={{ height: 10 }} />
+
+        {Boolean(error) && <ShowErrorText>{error}</ShowErrorText>}
+      </fieldset>
     </div>
   );
 };

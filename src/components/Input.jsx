@@ -11,7 +11,13 @@ const Input = ({ name, control, rules, label }) => {
   return (
     <div>
       <label htmlFor={label + name}>{label}</label>
-      <input {...field} id={label + name} type="text" autoComplete="off" />
+      <input
+        style={{ width: "100%" }}
+        {...field}
+        id={label + name}
+        type="text"
+        autoComplete="off"
+      />
     </div>
   );
 };
