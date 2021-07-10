@@ -4,6 +4,7 @@ import Checkbox from "./components/Checkbox";
 import Input from "./components/Input";
 import Menu from "./components/Menu";
 import RadioButtons from "./components/RadioButtons";
+import styles from "./css/showCurrentForm.module.css";
 
 const ShowCurrentForm = ({ currentChooseItem, setCurrentChooseItem }) => {
   const form = useForm({
@@ -79,7 +80,7 @@ const ShowCurrentForm = ({ currentChooseItem, setCurrentChooseItem }) => {
   });
 
   return (
-    <div style={{ borderTop: "1px solid black", width: 700 }}>
+    <div className={styles.mainContainer}>
       <h2>
         <b>Show form {currentChooseItem?.title}</b>
       </h2>

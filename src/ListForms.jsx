@@ -1,21 +1,15 @@
 import React from "react";
+import styles from "./css/listForms.module.css";
 
 const ListForms = ({ allForms, setCurrentChooseItem }) => {
   const mapForms = allForms.map((form, index) => {
     return (
-      <div
-        style={{
-          width: "100%",
-          borderBottom: "1px solid black",
-          padding: 5,
-        }}
-        key={index}
-      >
-        <h4 style={{ margin: 0 }}>{form?.title}</h4>
+      <div className={styles.containerForm} key={index}>
+        <h4 className={styles.header}>{form?.title}</h4>
 
         <div style={{ height: 10 }} />
 
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <div className={styles.actionForm}>
           <button onClick={() => setCurrentChooseItem(form)}>Show</button>
         </div>
       </div>
@@ -23,14 +17,8 @@ const ListForms = ({ allForms, setCurrentChooseItem }) => {
   });
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "flex-end",
-        flexDirection: "column",
-      }}
-    >
-      <h2 style={{ margin: 0 }}>
+    <div className={styles.mainContainer}>
+      <h2 className={styles.header}>
         <b>All created forms</b>
       </h2>
 

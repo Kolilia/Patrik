@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
+import styles from "../css/createElementForm.module.css";
 import Input from "./Input";
 import Menu from "./Menu";
 import ShowErrorText from "./ShowErrorText";
@@ -36,7 +37,7 @@ const CreatePossibleValue = ({
       <Input
         name="label"
         control={form.control}
-        label="Enter label for possible value"
+        label="Label"
         rules={{ required: true }}
       />
 
@@ -49,7 +50,7 @@ const CreatePossibleValue = ({
       <Input
         name="value"
         control={form.control}
-        label="Enter value for possible value"
+        label="Value"
         rules={{ required: true }}
       />
 
@@ -59,7 +60,7 @@ const CreatePossibleValue = ({
 
       <div style={{ height: 10 }} />
 
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+      <div className={styles.actions}>
         <button
           disabled={success}
           onClick={form.handleSubmit(confirmAndContinue)}
@@ -91,7 +92,7 @@ const CreatePossibleValuesForElement = ({ setValue, control }) => {
     );
   });
 
-  return <div style={{ marginLeft: 40, width: 300 }}>{mapForms}</div>;
+  return <div className={styles.possibleValuesForm}>{mapForms}</div>;
 };
 
 const CreateElementForm = ({
@@ -128,11 +129,11 @@ const CreateElementForm = ({
         formElements: [
           ...prevState?.formElements,
           {
-            id: values?.id,
-            name: values?.name,
-            type: values?.type,
-            label: values?.label,
-            options: values?.options,
+            id: values?.id || "",
+            name: values?.name || "",
+            type: values?.type || "Input",
+            label: values?.label || "",
+            options: values?.options || [],
           },
         ],
         defaultValues: {
@@ -151,12 +152,14 @@ const CreateElementForm = ({
   };
 
   return (
-    <div style={{ width: "100%" }}>
+    <div className={styles.mainContainer}>
       <Input
         name="label"
         control={form?.control}
         label="Choose label for form element"
       />
+
+      <div style={{ height: 12 }} />
 
       <Input
         name="name"
@@ -169,49 +172,49 @@ const CreateElementForm = ({
         <ShowErrorText>Field is required</ShowErrorText>
       )}
 
-      <div style={{ height: 10 }} />
+      <div style={{ height: 12 }} />
 
-      <div style={{ maxWidth: "100%" }}>
-        <Menu
-          name="type"
-          control={form.control}
-          label="Choose type form element"
-          setValue={form.setValue}
-          options={[
-            {
-              label: "Radio",
-              value: "Radio",
-            },
-            {
-              label: "Checkbox",
-              value: "Checkbox",
-            },
-            {
-              label: "Input",
-              value: "Input",
-            },
-            {
-              label: "Menu",
-              value: "Menu",
-            },
-          ]}
-        />
-      </div>
+      <Menu
+        name="type"
+        control={form.control}
+        label="Choose type form element"
+        setValue={form.setValue}
+        options={[
+          {
+            label: "Radio",
+            value: "Radio",
+          },
+          {
+            label: "Checkbox",
+            value: "Checkbox",
+          },
+          {
+            label: "Input",
+            value: "Input",
+          },
+          {
+            label: "Menu",
+            value: "Menu",
+          },
+        ]}
+      />
 
-      <div style={{ height: 10 }} />
+      <div style={{ height: 12 }} />
 
       {(typeElement === "Menu" || typeElement === "Radio") && (
         <>
-          <h4 style={{ margin: 0, textAlign: "center" }}>
-            Enter possible values for element form
-          </h4>
+          <fieldset>
+            <legend>
+              Enter possible values for {typeElement} element form
+            </legend>
 
-          <CreatePossibleValuesForElement
-            setValue={form.setValue}
-            control={form.control}
-          />
+            <CreatePossibleValuesForElement
+              setValue={form.setValue}
+              control={form.control}
+            />
+          </fieldset>
 
-          <div style={{ height: 10 }} />
+          <div style={{ height: 12 }} />
         </>
       )}
 
@@ -221,14 +224,14 @@ const CreateElementForm = ({
         label="Choose default value for  form element"
       />
 
-      <div style={{ height: 10 }} />
+      <div style={{ height: 12 }} />
 
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+      <div className={styles.actions}>
         <button
           disabled={success}
           onClick={form.handleSubmit(confirmAndContinue)}
         >
-          Add this element form
+          Add element form
         </button>
       </div>
     </div>
