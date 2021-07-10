@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { memo, useCallback, useEffect, useState } from "react";
 import { useController } from "react-hook-form";
 import styles from "../css/menu.module.css";
 import { ReactComponent as ArrowDown } from "../Icons/arrow-down.svg";
@@ -23,7 +23,7 @@ const Options = ({ options, setValue, name, setOpenMenu }) => {
   return <div className={styles.menuOptions}>{mapOptions}</div>;
 };
 
-const Menu = ({ name, control, rules, label, options, setValue }) => {
+const Menu = memo(({ name, control, rules, label, options, setValue }) => {
   const { field } = useController({
     name: name,
     control: control,
@@ -36,7 +36,7 @@ const Menu = ({ name, control, rules, label, options, setValue }) => {
     setOpenMenu(true);
   };
 
-  const onClockCloseMenu = () => {
+  const onClickCloseMenu = () => {
     setOpenMenu(false);
   };
 
@@ -44,7 +44,7 @@ const Menu = ({ name, control, rules, label, options, setValue }) => {
     (e) => {
       const element = document.getElementById("menu");
 
-      if (element && openMenu && !element.contains(e.target)) {
+      if (openMenu && !element?.contains(e.target)) {
         setOpenMenu(false);
       }
     },
@@ -53,7 +53,11 @@ const Menu = ({ name, control, rules, label, options, setValue }) => {
 
   useEffect(() => {
     document.addEventListener("click", handlerMenu);
-  }, [handlerMenu]);
+
+    return () => {
+      document.removeEventListener("click", handlerMenu);
+    };
+  }, [handlerMenu, openMenu]);
 
   return (
     <div className={styles.block} id="menu">
@@ -66,12 +70,13 @@ const Menu = ({ name, control, rules, label, options, setValue }) => {
         }}
         className={styles.menuMain}
         type="text"
+        autoComplete="off"
         id={label + name}
-        onClick={openMenu ? onClockCloseMenu : onClickOpenMenu}
+        onClick={openMenu ? onClickCloseMenu : onClickOpenMenu}
       />
 
       {openMenu ? (
-        <ArrowUp onClick={onClockCloseMenu} className={styles.icon} />
+        <ArrowUp onClick={onClickCloseMenu} className={styles.icon} />
       ) : (
         <ArrowDown onClick={onClickOpenMenu} className={styles.icon} />
       )}
@@ -86,6 +91,6 @@ const Menu = ({ name, control, rules, label, options, setValue }) => {
       ) : null}
     </div>
   );
-};
+});
 
 export default Menu;

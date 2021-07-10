@@ -10,7 +10,7 @@ const Input = ({ name, control, rules, label }) => {
 
   return (
     <div>
-      <label for={label + name}>{label}</label>
+      <label htmlFor={label + name}>{label}</label>
       <input {...field} id={label + name} type="text" autoComplete="off" />
     </div>
   );
