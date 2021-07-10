@@ -1,6 +1,6 @@
 import React from "react";
 
-const ListForms = () => {
+const ListForms = ({ allForms }) => {
   return <div></div>;
 };
 

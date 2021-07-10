@@ -1,6 +1,6 @@
 import React from "react";
 
-const GenerateForms = () => {
+const GenerateForms = ({ setAllForms }) => {
   return <div></div>;
 };
 
