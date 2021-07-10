@@ -10,7 +10,7 @@ const Checkbox = ({ name, control, rules, label }) => {
 
   return (
     <>
-      <label for={name + label}>{label}</label>
+      <label htmlFor={name + label}>{label}</label>
       <div style={{ width: 2 }} />
       <input {...field} id={name + label} type="checkbox" autoComplete="off" />
     </>

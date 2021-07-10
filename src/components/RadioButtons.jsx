@@ -11,7 +11,7 @@ const RadioButtons = ({ name, control, rules, options, label }) => {
   const radioButtons = options.map((item, index) => {
     return (
       <>
-        <label for={index}>{item?.label}</label>
+        <label htmlFor={index}>{item?.label}</label>
 
         <div style={{ width: 1 }} />
 
@@ -24,7 +24,7 @@ const RadioButtons = ({ name, control, rules, options, label }) => {
 
   return (
     <div>
-      <h4 style={{ margin: 0, textAlign: "center" }}>
+      <h4 style={{ margin: 0 }}>
         <b>{label}</b>
       </h4>
 
