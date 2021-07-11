@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
-import { generatePayloadForm } from "../../../../helpers/generatePayloadForm";
-import Button from "../../../../System/Button";
-import Input from "../../../../System/Input";
-import Menu from "../../../../System/Menu";
-import RadioButtons from "../../../../System/RadioButtons";
-import ShowErrorText from "../../../../System/ShowErrorText";
+import { generatePayloadForm } from "../../../helpers/generatePayloadForm";
+import Button from "../../../System/Button";
+import Input from "../../../System/Input";
+import Menu from "../../../System/Menu";
+import RadioButtons from "../../../System/RadioButtons";
+import ShowErrorText from "../../../System/ShowErrorText";
 import CreatePossibleValuesForElement from "./CreatePossibleValuesForElement";
 import styles from "./index.module.css";
 

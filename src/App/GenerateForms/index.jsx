@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { generatePayloadForm } from "../../../helpers/generatePayloadForm";
-import Button from "../../../System/Button";
-import ShowErrorText from "../../../System/ShowErrorText";
+import { generatePayloadForm } from "../../helpers/generatePayloadForm";
+import Button from "../../System/Button";
+import ShowErrorText from "../../System/ShowErrorText";
 import CreateElementForm from "./CreateElementForm";
 import styles from "./index.module.css";
 

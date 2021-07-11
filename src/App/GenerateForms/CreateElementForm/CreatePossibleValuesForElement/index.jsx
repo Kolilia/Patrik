@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
-import Button from "../../../../../System/Button";
-import Input from "../../../../../System/Input";
-import ShowErrorText from "../../../../../System/ShowErrorText";
+import Button from "../../../../System/Button";
+import Input from "../../../../System/Input";
+import ShowErrorText from "../../../../System/ShowErrorText";
 import styles from "./index.module.css";
 
 const CreatePossibleValue = ({

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import GenerateForms from "./components/GenerateForms";
-import ListForms from "./components/ListForms";
+import GenerateForms from "./GenerateForms";
 import styles from "./index.module.css";
+import ListForms from "./ListForms";
 
 function App() {
   const [allForms, setAllForms] = useState([]);
