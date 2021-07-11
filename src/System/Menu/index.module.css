@@ -3,6 +3,10 @@
   cursor: pointer;
   z-index: 1;
   width: 100%;
+  border-radius: 1em;
+  outline: none;
+  padding: 5px 10px;
+  box-sizing: border-box;
 }
 .block {
   position: relative;
@@ -18,13 +22,15 @@
   transition: all 0.3s ease;
   z-index: 1000;
   background-color: #eee;
+  padding: 5px 10px;
+  box-sizing: border-box;
 }
 
 .icon {
   position: absolute;
   z-index: 5;
-  right: 4px;
-  bottom: 1px;
+  right: 10px;
+  bottom: 7px;
   width: 15px;
   height: 15px;
   cursor: pointer;
@@ -35,4 +41,6 @@
   border-bottom: 1px solid black;
   width: 100%;
   text-align: center;
+  padding: 5px 10px;
+  box-sizing: border-box;
 }

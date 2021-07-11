@@ -1,0 +1,16 @@
+.input {
+  width: 100%;
+  border-radius: 1em;
+  outline: none;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.root {
+  border-radius: 1em;
+  padding: 10px 15px;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  overflow-y: auto;
+  height: 700px;
+}
