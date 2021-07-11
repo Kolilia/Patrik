@@ -1,8 +1,8 @@
 import React, { memo, useCallback, useEffect, useState } from "react";
 import { useController } from "react-hook-form";
-import styles from "../css/menu.module.css";
 import { ReactComponent as ArrowDown } from "../Icons/arrow-down.svg";
 import { ReactComponent as ArrowUp } from "../Icons/arrow-up.svg";
+import styles from "./index.module.css";
 
 const Options = ({ options, setValue, name, setOpenMenu }) => {
   const mapOptions = options.map((item) => {
